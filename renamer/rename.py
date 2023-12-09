@@ -1,7 +1,7 @@
 import libcst
 
-from renamer.file import File
-from renamer.project import Project
+from renamer.base.file import File
+from renamer.base.project import Project
 from renamer.transformers.rename.call import RenameCallTransformer
 from renamer.transformers.rename.class_def import RenameClassDefTransformer
 from renamer.transformers.rename.function_def import RenameFunctionDefTransformer

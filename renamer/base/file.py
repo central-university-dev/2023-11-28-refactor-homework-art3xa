@@ -1,4 +1,4 @@
-from renamer.resource import Resource
+from renamer.base.resource import Resource
 
 
 class File(Resource):

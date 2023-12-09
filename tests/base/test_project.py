@@ -1,9 +1,9 @@
 import pytest
 
-from renamer.errors import DoesNotExistError
-from renamer.file import File
-from renamer.folder import Folder
-from renamer.project import Project
+from renamer.base.exceptions import DoesNotExistError
+from renamer.base.file import File
+from renamer.base.folder import Folder
+from renamer.base.project import Project
 
 
 @pytest.fixture(scope="function")
@@ -12,18 +12,6 @@ def tmp_project_folder(tmp_path):
     file_path = tmp_path / "text.txt"
     file_path.write_text("Hello, World!")
     return Project(str(tmp_path))
-
-
-# @pytest.fixture(scope="function")
-# def tmp_project_with_python_files(tmp_path):
-#     (tmp_path / "subfolder").mkdir()
-#     file_path = tmp_path / "text.txt"
-#     file_path.write_text("Hello, World!")
-#     file_path = tmp_path / "test.py"
-#     file_path.write_text("print('Hello, World!')")
-#     file_path = tmp_path / "test2.py"
-#     file_path.write_text("print('Hello, World 2!')")
-#     return Project(str(tmp_path))
 
 
 def test_project_creation(tmp_project_folder):

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from renamer.project import Project
+from renamer.base.project import Project
 from renamer.rename import Rename
 
 FIXTURES_PATH = Path("tests/fixtures/rename/func")

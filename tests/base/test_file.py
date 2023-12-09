@@ -1,6 +1,6 @@
 import pytest
 
-from renamer.file import File
+from renamer.base.file import File
 
 
 @pytest.fixture(scope="function", params=["temp.txt", "temp"])

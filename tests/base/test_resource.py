@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from renamer.resource import Resource
+from renamer.base.resource import Resource
 
 
 @pytest.fixture()

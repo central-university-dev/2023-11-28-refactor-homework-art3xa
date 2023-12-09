@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from renamer.errors import DoesNotExistError
-from renamer.file import File
-from renamer.folder import Folder
+from renamer.base.exceptions import DoesNotExistError
+from renamer.base.file import File
+from renamer.base.folder import Folder
 
 
 class Project(Folder):

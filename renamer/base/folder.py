@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from renamer.errors import NotAFolderError
-from renamer.file import File
-from renamer.resource import Resource
+from renamer.base.exceptions import NotAFolderError
+from renamer.base.file import File
+from renamer.base.resource import Resource
 
 
 class Folder(Resource):
