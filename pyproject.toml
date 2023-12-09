@@ -12,7 +12,16 @@ libcst = "^1.0.0"
 [tool.poetry.group.dev.dependencies]
 pytest = "7.4.3"
 pytest-cov = "4.1.0"
+ruff = "^0.1.7"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+select = ["ALL"]
+ignore = ["ANN101", "D100", "D101", "D107"]
+target-version = "py311"
+line-length = 120
+fixable = ["ALL"]
+exclude = ["tests"]
