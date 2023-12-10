@@ -4,7 +4,7 @@ from renamer.transformers.move.remove_def_base import RemoveDefBaseTransformer
 
 
 class RemoveFunctionDefTransformer(RemoveDefBaseTransformer):
-    def leave_FunctionDef(self, original_node: "FunctionDef", updated_node: "FunctionDef") -> "BaseStatement":
+    def leave_FunctionDef(self, original_node: "FunctionDef", updated_node: "FunctionDef") -> "BaseStatement":  # noqa: N802
         """Rename function definition."""
         if updated_node.name.value == self._name:
             self.define = updated_node

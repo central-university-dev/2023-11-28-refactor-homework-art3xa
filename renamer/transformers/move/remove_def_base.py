@@ -9,7 +9,7 @@ class RemoveDefBaseTransformer(cst.CSTTransformer):
         self._to_file_path = to_file_path
         self.define = None
 
-    def leave_Call(self, original_node: "Call", updated_node: "Call") -> "BaseExpression":
+    def leave_Call(self, original_node: "Call", updated_node: "Call") -> "BaseExpression":  # noqa: N802
         """Rename function call."""
         if updated_node.func.value == self._name:
             return updated_node.with_changes(func=self._create_new_call().deep_clone())
