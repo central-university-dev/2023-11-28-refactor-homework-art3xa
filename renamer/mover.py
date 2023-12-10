@@ -13,6 +13,7 @@ from renamer.transformers.move.replace_import_and_call import ReplaceImportAndCa
 
 class Mover:
     def __init__(self, project: Project, from_file: File, to_file: File) -> None:
+        """Initialize Mover."""
         self.project = project
         self.from_file = from_file
         self.to_file = to_file

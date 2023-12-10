@@ -11,6 +11,7 @@ from renamer.transformers.rename.name import RenameNameTransformer
 
 class Renamer:
     def __init__(self, project: Project, file: File) -> None:
+        """Initialize Renamer."""
         self.project = project
         self.file = file
 
