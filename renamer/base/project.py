@@ -24,4 +24,4 @@ class Project(Folder):
 
     def get_python_files(self) -> list[File]:
         """Get Python files in project."""
-        return [File(str(path)) for path in self.pathlib.glob("**/*.py")]
+        return sorted([File(str(path)) for path in self.pathlib.glob("**/*.py")], key=lambda file: file.path)

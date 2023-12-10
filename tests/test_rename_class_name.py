@@ -55,7 +55,7 @@ def test_rename_class_name_with_import_alias_module():
     assert got == [
         Path(FIXTURES_PATH / "name_with_import_alias_module/expected.py").read_text(),
         Path(FIXTURES_PATH / "name_with_import_alias_module/expected2.py").read_text(),
+        Path(FIXTURES_PATH / "name_with_import_alias_module/expected_module/__init__.py").read_text(),
         Path(FIXTURES_PATH / "name_with_import_alias_module/expected_module/expected_module_file.py").read_text(),
         Path(FIXTURES_PATH / "name_with_import_alias_module/expected_module/expected_module_file2.py").read_text(),
-        Path(FIXTURES_PATH / "name_with_import_alias_module/expected_module/__init__.py").read_text(),
     ]
