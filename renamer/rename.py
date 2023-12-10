@@ -1,4 +1,4 @@
-import libcst
+import libcst as cst
 
 from renamer.base.file import File
 from renamer.base.project import Project
@@ -21,7 +21,7 @@ class Rename:
         rename_import_alias_transformer = RenameImportAliasTransformer(old_name, target_name)
         result = []
         for file in self.project.get_python_files():
-            original_tree = libcst.parse_module(file.read())
+            original_tree = cst.parse_module(file.read())
             renamed_tree = original_tree.visit(rename_function_def_transformer)
             renamed_tree = renamed_tree.visit(rename_call_transformer)
             renamed_tree = renamed_tree.visit(rename_import_alias_transformer)
@@ -35,7 +35,7 @@ class Rename:
         rename_import_alias_transformer = RenameImportAliasTransformer(old_name, target_name)
         result = []
         for file in self.project.get_python_files():
-            original_tree = libcst.parse_module(file.read())
+            original_tree = cst.parse_module(file.read())
             renamed_tree = original_tree.visit(rename_class_def_transformer)
             renamed_tree = renamed_tree.visit(rename_call_transformer)
             renamed_tree = renamed_tree.visit(rename_import_alias_transformer)
@@ -47,7 +47,7 @@ class Rename:
         rename_name_transformer = RenameNameTransformer(old_name, target_name)
         result = []
         for file in self.project.get_python_files():
-            original_tree = libcst.parse_module(file.read())
+            original_tree = cst.parse_module(file.read())
             renamed_tree = original_tree.visit(rename_name_transformer)
             result.append(renamed_tree.code)
         return result

@@ -1,6 +1,6 @@
 import pytest
 
-from renamer.base.exceptions import DoesNotExistError
+from renamer.base.exceptions import DoesNotExistError, NotAFileError
 from renamer.base.file import File
 from renamer.base.folder import Folder
 from renamer.base.project import Project
@@ -56,3 +56,17 @@ def test_project_get_resource_folder(tmp_project_folder):
 def test_project_get_resource_not_found(tmp_project_folder):
     with pytest.raises(DoesNotExistError):
         tmp_project_folder.get_resource("not_found")
+
+
+def test_project_get_file_not_exists(tmp_project_folder):
+    with pytest.raises(DoesNotExistError):
+        tmp_project_folder.get_file("not_exists.txt")
+
+
+def test_project_get_file_not_file(tmp_project_folder):
+    with pytest.raises(NotAFileError):
+        tmp_project_folder.get_file("subfolder")
+
+
+def test_project_get_file(tmp_project_folder):
+    assert "Hello, World!" == tmp_project_folder.get_file("text.txt").read()

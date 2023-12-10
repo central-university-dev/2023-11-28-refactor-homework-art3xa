@@ -15,3 +15,11 @@ class NotAFolderError(Exception):
     def __init__(self, path: str) -> None:
         """Initialize error."""
         super().__init__(f"Path {path} is not a folder")
+
+
+class NotAFileError(Exception):
+    """Raised when a path is not a file."""
+
+    def __init__(self, path: str) -> None:
+        """Initialize error."""
+        super().__init__(f"Path {path} is not a file")
