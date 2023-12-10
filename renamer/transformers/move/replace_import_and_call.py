@@ -12,13 +12,6 @@ class ReplaceImportAndCallTransformer(cst.CSTTransformer):
         self._to_file_path = to_file_path
         self.need_to_replace = True
 
-    # def visit_ImportAlias(self, node: "ImportAlias") -> bool:
-    #     """Rename function definition."""
-    #     if node.name.value == self._from_file_path:
-    #         self.need_to_replace = False
-    #         return True
-    #     return True
-
     def leave_ImportAlias(
         self, original_node: "ImportAlias", updated_node: "ImportAlias",
     ) -> Union["ImportAlias", FlattenSentinel["ImportAlias"], RemovalSentinel]:

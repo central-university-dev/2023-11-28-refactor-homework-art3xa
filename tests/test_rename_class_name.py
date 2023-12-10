@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from renamer.base.project import Project
-from renamer.rename import Rename
+from renamer.renamer import Renamer
 
 FIXTURES_PATH = Path("tests/fixtures/rename/class")
 
@@ -9,7 +9,7 @@ FIXTURES_PATH = Path("tests/fixtures/rename/class")
 def test_rename_class_name():
     project = Project(FIXTURES_PATH / "name/proj")
     file = project.get_resource("source.py")
-    rename = Rename(project, file)
+    rename = Renamer(project, file)
     got = rename.rename_class("AClass", "FClass")
     assert got == [Path(FIXTURES_PATH / "name/expected.py").read_text()]
 
@@ -17,7 +17,7 @@ def test_rename_class_name():
 def test_rename_class_name_with_import():
     project = Project(FIXTURES_PATH / "name_with_import/proj")
     file = project.get_resource("source.py")
-    rename = Rename(project, file)
+    rename = Renamer(project, file)
     got = rename.rename_class("AClass", "FClass")
     assert got == [
         Path(FIXTURES_PATH / "name_with_import/expected.py").read_text(),
@@ -28,7 +28,7 @@ def test_rename_class_name_with_import():
 def test_rename_class_name_with_import_alias():
     project = Project(FIXTURES_PATH / "name_with_import_alias/proj")
     file = project.get_resource("source.py")
-    rename = Rename(project, file)
+    rename = Renamer(project, file)
     got = rename.rename_class("AClass", "FClass")
     assert got == [
         Path(FIXTURES_PATH / "name_with_import_alias/expected.py").read_text(),
@@ -39,7 +39,7 @@ def test_rename_class_name_with_import_alias():
 def test_rename_class_name_with_import_alias_back():
     project = Project(FIXTURES_PATH / "name_with_import_alias/proj")
     file = project.get_resource("source2.py")
-    rename = Rename(project, file)
+    rename = Renamer(project, file)
     got = rename.rename_class("AClass", "FClass")
     assert got == [
         Path(FIXTURES_PATH / "name_with_import_alias/expected.py").read_text(),
@@ -50,7 +50,7 @@ def test_rename_class_name_with_import_alias_back():
 def test_rename_class_name_with_import_alias_module():
     project = Project(FIXTURES_PATH / "name_with_import_alias_module/proj")
     file = project.get_resource("source.py")
-    rename = Rename(project, file)
+    rename = Renamer(project, file)
     got = rename.rename_class("AClass", "FClass")
     assert got == [
         Path(FIXTURES_PATH / "name_with_import_alias_module/expected.py").read_text(),
