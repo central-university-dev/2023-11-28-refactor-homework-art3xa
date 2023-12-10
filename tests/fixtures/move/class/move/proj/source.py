@@ -7,3 +7,10 @@ class AClass:
 
 
 AClass()
+
+
+class BClass:
+    ...
+
+
+BClass()
