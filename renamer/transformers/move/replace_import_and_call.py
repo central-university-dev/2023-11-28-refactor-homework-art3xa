@@ -12,7 +12,7 @@ class ReplaceImportAndCallTransformer(cst.CSTTransformer):
         self._to_file_path = to_file_path
         self.need_to_replace = True
 
-    def leave_ImportAlias(
+    def leave_ImportAlias(  # noqa: N802
         self, original_node: "ImportAlias", updated_node: "ImportAlias",
     ) -> Union["ImportAlias", FlattenSentinel["ImportAlias"], RemovalSentinel]:
         """Rename function definition."""
@@ -20,7 +20,7 @@ class ReplaceImportAndCallTransformer(cst.CSTTransformer):
             return updated_node.with_changes(name=cst.Name(value=self._to_file_path))
         return updated_node
 
-    def leave_Call(self, original_node: "Call", updated_node: "Call") -> "BaseExpression":
+    def leave_Call(self, original_node: "Call", updated_node: "Call") -> "BaseExpression":  # noqa: N802
         """Rename function call."""
         if updated_node.func.value.value == self._from_file_path:
             return updated_node.with_changes(func=self._create_function_call().deep_clone())

@@ -32,3 +32,5 @@ jobs:
       run: poetry install --no-interaction --no-root
     - name: Run tests with pytest
       run: .venv/bin/pytest --cov=renamer --cov-fail-under=95
+    - name: Run static analysis with ruff
+      run: .venv/bin/ruff renamer

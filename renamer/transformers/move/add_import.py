@@ -8,7 +8,7 @@ class AddImportTransformer(cst.CSTTransformer):
         self._name = name
         self._to_file_path = to_file_path
 
-    def leave_Module(self, original_node: "FunctionDef", updated_node: "FunctionDef") -> "BaseStatement":
+    def leave_Module(self, original_node: "FunctionDef", updated_node: "FunctionDef") -> "BaseStatement":  # noqa: N802
         """Rename function definition."""
         new_body = [self._create_import()]
         new_body.extend(updated_node.body)
